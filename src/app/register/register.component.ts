@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  //test 
   public user = {
     email: '',
     password: '',
@@ -28,4 +29,27 @@ export class RegisterComponent implements OnInit {
        })
        .catch((err) => console.log('error: ' + err));
  }
+ signInWithTwitter() {
+  this.authService.signInWithTwitter()
+  .then((res) => { 
+      this.router.navigate(['dashboard'])
+    })
+  .catch((err) => console.log(err));
+}
+
+signInWithFacebook() {
+  this.authService.signInWithFacebook()
+  .then((res) => { 
+      this.router.navigate(['dashboard'])
+    })
+  .catch((err) => console.log(err));
+}
+
+signInWithGoogle() {
+  this.authService.signInWithGoogle()
+  .then((res) => {
+      this.router.navigate(['dashboard'])
+    })
+  .catch((err) => console.log(err));
+}
 }
