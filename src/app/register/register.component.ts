@@ -12,8 +12,7 @@ export class RegisterComponent implements OnInit {
   public user = {
     email: '',
     password: '',
-    firstName:'',
-    lastName:''
+    phoneNumber:''
  };
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -29,7 +28,7 @@ export class RegisterComponent implements OnInit {
        })
        .catch((err) => console.log('error: ' + err));
  }
- 
+
  signInWithTwitter() {
   this.authService.signInWithTwitter()
   .then((res) => { 

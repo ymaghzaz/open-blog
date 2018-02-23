@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { AskResetPasswordComponent } from './ask-reset-password/ask-reset-password.component';
-import { Step1Component } from './register/step1/step1.component'
+import { Step1Component } from './register/step1/step1.component';
+import { Step2Component } from './register/step2/step2.component'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { Step1Component } from './register/step1/step1.component'
     DashboardComponent,
     RegisterComponent,
     AskResetPasswordComponent,
-    Step1Component
+    Step1Component,
+    Step2Component
   ],
   imports: [
     BrowserModule,
