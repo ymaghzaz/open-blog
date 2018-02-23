@@ -65,7 +65,12 @@ export class AuthService {
    let usersInfos = this.afs.collection('users', ref => ref.where('userID', '==', '89oPn19AmohG9mcfOthgKBcxlbt1')).valueChanges().subscribe(c=>{
      console.log('data',c)
    })
- 
-
+ } 
+   resetPassword(email: string) {
+    return this._firebaseAuth.auth.sendPasswordResetEmail(email)
+      .then(() => console.log("email sent"))
+      .catch((error) => console.log(error))
   }
+
+ 
 }

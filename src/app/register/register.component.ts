@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
        })
        .catch((err) => console.log('error: ' + err));
  }
+ 
  signInWithTwitter() {
   this.authService.signInWithTwitter()
   .then((res) => { 

@@ -16,6 +16,9 @@ import { AppRoutes } from './app.routes';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { AskResetPasswordComponent } from './ask-reset-password/ask-reset-password.component';
+import { Step1Component } from './register/step1/step1.component'
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { RegisterComponent } from './register/register.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    AskResetPasswordComponent,
+    Step1Component
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    Angular2FontawesomeModule
   ],
   providers: [AuthService,AuthGuardService],
   bootstrap: [AppComponent]
