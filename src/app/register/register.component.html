@@ -1,4 +1,4 @@
-<body class="text-center">
+<div class="text-center">
   <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
     <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     
@@ -25,10 +25,7 @@
     <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
      <input name="email" type="email" id="inputEmail" [(ngModel)]="user.email" class="form-control" placeholder="Adresse e-mail"
       required="" autofocus="">
-    <input name="firstName" type="string" class="form-control" [(ngModel)]="user.firstName" placeholder="Prénom" required>
-    <input name="lastName" type="string" class="form-control" [(ngModel)]="user.lastName" placeholder="Nom de famille" required>
-    <input name="phoneNumber" type="string" class="form-control" [(ngModel)]="user.phoneNumbre" placeholder="Numéro de mobile" required>
-
+    <input name="phoneNumber" type="number" class="form-control" [(ngModel)]="user.phoneNumbre" placeholder="Numéro de mobile" required>
     <label for="inputPassword" class="sr-only">Mot de passe</label>
     <input name="password" type="password" id="inputPassword" [(ngModel)]="user.password" class="form-control" placeholder="Mot de passe"
       required="">
@@ -51,4 +48,4 @@
   </form>
 
 
-</body>
+</div>
