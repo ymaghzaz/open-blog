@@ -1,49 +1,49 @@
-
 <div class="text-center">
-    <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-     
-    <button type="button" class="btn btn-block  fa fa-google " (click)="signInWithGoogle()" >
-          <i class="" aria-hidden="true"></i>
-          Connextion avec Google
-        </button>
+  <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
+    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 
-      <button type="buton" class="btn btn-block fa fa-facebook" (click)="signInWithFacebook()">
-        <i class="" aria-hidden="true"></i> 
-        Connextion avec Facebook
-      </button>
+    <button type="button" class="btn btn-block  fa fa-google " (click)="signInWithGoogle()">
+      <i class="" aria-hidden="true"></i>
+      Connextion avec Google
+    </button>
 
-      <button type="button" class="btn btn-block fa fa-twitter" (click)="signInWithTwitter()">
-        <i class="" aria-hidden="true"></i>
-        Connextion avec Twitter
-      </button>
+    <button type="buton" class="btn btn-block fa fa-facebook" (click)="signInWithFacebook()">
+      <i class="" aria-hidden="true"></i>
+      Connextion avec Facebook
+    </button>
 
-      <hr>
-      <h1 class="h3 mb-3 font-weight-normal">Identifiez-vous</h1>
-      <input  name="email"  type="email" id="inputEmail"   [(ngModel)]="user.email" class="form-control" placeholder="Adresse e-mail" required="" autofocus=""> 
-      <input name="password" type="password" id="inputPassword" [(ngModel)]="user.password"  class="form-control" placeholder="Mot de passe" required="">
-      <div class="checkbox mb-3">
-        <label>
-            <a _ngcontent-c1="" class="forgotten-pwd" href="/ask-reset-password">Mot de passe oublié ?</a>
-          </label>
-          <br>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Sign in</button>
+    <button type="button" class="btn btn-block fa fa-twitter" (click)="signInWithTwitter()">
+      <i class="" aria-hidden="true"></i>
+      Connextion avec Twitter
+    </button>
 
-      
-      <hr>
+    <hr>
+    <h1 class="h3 mb-3 font-weight-normal">Identifiez-vous</h1>
+    <input name="email" type="email" id="inputEmail" [(ngModel)]="user.email" class="form-control" placeholder="Adresse e-mail"
+      required="" autofocus="">
+    <input name="password" type="password" id="inputPassword" [(ngModel)]="user.password" class="form-control" placeholder="Mot de passe"
+      required="">
+    <div class="checkbox mb-3">
       <label>
-          Vous n'avez pas de compte ?
+        <a _ngcontent-c1="" class="forgotten-pwd" href="/ask-reset-password">Mot de passe oublié ?</a>
       </label>
-      <label>
-        <a _ngcontent-c1="" class="forgotten-pwd" href="/register">Inscription</a>
-      </label>
+      <br>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Sign in</button>
 
-  
 
-      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
-    </form>
-  
+    <hr>
+    <label>
+      Vous n'avez pas de compte ?
+    </label>
+    <label>
+      <a _ngcontent-c1="" class="forgotten-pwd" href="/register">Inscription</a>
+    </label>
 
-  </div>
 
+
+    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+  </form>
+
+
+</div>

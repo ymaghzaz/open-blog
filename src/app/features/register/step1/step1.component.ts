@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { userRegisterInfos } from '../models/user.step1';
 
 @Component({
   selector: 'app-step1',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./step1.component.css']
 })
 export class Step1Component implements OnInit {
-
+  user: userRegisterInfos = new userRegisterInfos();
+  legalConfirmation: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  firstStepRegister() {
+    console.log(this.user, this.legalConfirmation)
+  }
 }

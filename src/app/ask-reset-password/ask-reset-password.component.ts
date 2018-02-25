@@ -11,23 +11,21 @@ export class AskResetPasswordComponent implements OnInit {
 
   public user = {
     email: ''
- };
+  };
   constructor(private authService: AuthService, private router: Router) {
     //this.authService.getLoginInfo()
-   }
+  }
 
   ngOnInit() {
   }
 
   askRestPassword() {
     this.authService.resetPassword(this.user.email)
-    .then((res) => { 
-      console.log('check your mail');
-       // this.router.navigate(['dashboard'])
+      .then((res) => {
+        console.log('check your mail');
+        this.router.navigate(['login'])
       })
-    .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   }
 
-   
- 
 }

@@ -33,6 +33,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/cdk@^5.2.2":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.2.2.tgz#5a53929e3a4ce4d0166d6319611d2035454bb778"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@~1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.7.0.tgz#63c56e6d36d57bcd9d9d9425bd806f590f518211"
@@ -140,6 +146,12 @@
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-5.2.5.tgz#7c3021f347dd4b28ae0a867700894f3de4930f48"
 
+"@angular/material@^5.2.2":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.2.tgz#13822736b7aa034ed0566a6962ee574d299208ee"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/platform-browser-dynamic@^5.2.0":
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.5.tgz#b89df410bd953e2a6843325f9ac3c09a10eadaf0"
@@ -238,6 +250,22 @@
 "@firebase/webchannel-wrapper@0.2.6":
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.6.tgz#a4b81ca8cdeb1acbc7923289a4a514f61b59db86"
+
+"@ngrx/effects@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-4.1.1.tgz#cb758b8527964b258ea41951f59aa144e3ef9fae"
+
+"@ngrx/router-store@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-4.1.1.tgz#17fac7c0f5ffddef8b75e9a74ed2cb09074f3bca"
+
+"@ngrx/store-devtools@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-4.1.1.tgz#20745c39c7560fdc05fa4f22638442a7ec7dd676"
+
+"@ngrx/store@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-4.1.1.tgz#680e34df2775e8852754ed777ffac95bd81b7de0"
 
 "@ngtools/json-schema@1.2.0":
   version "1.2.0"

@@ -1,22 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-step0',
+  templateUrl: './step0.component.html',
+  styleUrls: ['./step0.component.css']
 })
-export class LoginComponent implements OnInit {
+export class Step0Component implements OnInit {
+
+  //test 
   public user = {
     email: '',
-    password: ''
+    password: '',
+    phoneNumber: ''
   };
-  constructor(private authService: AuthService, private router: Router) {
-    //this.authService.getLoginInfo()
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  signInWithEmail() {
+    this.authService.signInRegular(this.user.email, this.user.password)
+      .then((res) => {
+        console.log(res);
+        this.router.navigate(['dashboard']);
+      })
+      .catch((err) => console.log('error: ' + err));
   }
 
   signInWithTwitter() {
@@ -42,13 +52,5 @@ export class LoginComponent implements OnInit {
       })
       .catch((err) => console.log(err));
   }
-  signInWithEmail() {
-    this.authService.signInRegular(this.user.email, this.user.password)
-      .then((res) => {
-        console.log(res);
 
-        this.router.navigate(['dashboard']);
-      })
-      .catch((err) => console.log('error: ' + err));
-  }
 }
