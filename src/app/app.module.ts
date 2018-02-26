@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FormsModule } from '@angular/forms';
 import { AskResetPasswordComponent } from './ask-reset-password/ask-reset-password.component';
@@ -14,12 +12,11 @@ import { FirbaseConnectModule } from './features/commun/firbase-connect/firbase-
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CoreModule } from './core/index';
 import { SharedModule } from './shared/index';
+import { ngxMediumModule } from 'ngx-medium-editor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent,
     AskResetPasswordComponent,
     FooterComponent
   ],
@@ -29,10 +26,10 @@ import { SharedModule } from './shared/index';
     StyleModule,
     FirbaseConnectModule,
     FormsModule,
-
+    ngxMediumModule,
     // core & shared
     CoreModule,
-    SharedModule,
+    //SharedModule,
 
     //dev store
     StoreDevtoolsModule.instrument({

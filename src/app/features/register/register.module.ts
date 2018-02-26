@@ -9,13 +9,18 @@ import { RegisterRoutingModule } from './register-rooting.module';
 import { StyleModule } from '../commun/style/style.module';
 import { FirbaseConnectModule } from '../commun/firbase-connect/firbase-connect.module';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { registerReducer } from './register.reducer';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RegisterRoutingModule,
     StyleModule,
-    FirbaseConnectModule
+    FirbaseConnectModule,
+    StoreModule.forFeature('register', {
+      register: registerReducer,
+    })
   ],
   declarations: [RegisterComponent, Step0Component, Step1Component, Step2Component],
   providers: [AuthService]

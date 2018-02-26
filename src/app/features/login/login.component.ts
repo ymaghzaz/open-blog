@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  textVar = 'bravoo'
   public user = {
     email: '',
     password: ''
@@ -42,12 +44,13 @@ export class LoginComponent implements OnInit {
       })
       .catch((err) => console.log(err));
   }
+
   signInWithEmail() {
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
         console.log(res);
 
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['/dashboard']);
       })
       .catch((err) => console.log('error: ' + err));
   }

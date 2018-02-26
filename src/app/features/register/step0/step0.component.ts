@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { userRegisterInfos } from '../models/user.step1';
 
 @Component({
   selector: 'app-step0',
@@ -10,11 +11,7 @@ import { Router } from '@angular/router';
 export class Step0Component implements OnInit {
 
   //test 
-  public user = {
-    email: '',
-    password: '',
-    phoneNumber: ''
-  };
+  public user: userRegisterInfos = new userRegisterInfos();
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
