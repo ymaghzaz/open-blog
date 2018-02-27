@@ -38,6 +38,7 @@ import { ngxMediumModule } from 'ngx-medium-editor';
 
   ],
   providers: [AuthService, AuthGuardService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

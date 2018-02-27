@@ -4,7 +4,7 @@ export const AUTH_KEY = 'AUTH';
 
 export enum AuthActionTypes {
   LOGIN = '[Auth] Login',
-  LOGOUT = '[Auth] Logout'
+  LOGOUT = '[Auth] Logout' 
 }
 
 export class ActionAuthLogin implements Action {

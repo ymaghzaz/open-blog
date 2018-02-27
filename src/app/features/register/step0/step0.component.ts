@@ -21,7 +21,7 @@ export class Step0Component implements OnInit {
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
         console.log(res);
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['/dashboard']);
       })
       .catch((err) => console.log('error: ' + err));
   }
@@ -29,7 +29,7 @@ export class Step0Component implements OnInit {
   signInWithTwitter() {
     this.authService.signInWithTwitter()
       .then((res) => {
-        this.router.navigate(['dashboard'])
+        this.router.navigate(['/dashboard'])
       })
       .catch((err) => console.log(err));
   }
@@ -37,7 +37,7 @@ export class Step0Component implements OnInit {
   signInWithFacebook() {
     this.authService.signInWithFacebook()
       .then((res) => {
-        this.router.navigate(['dashboard'])
+        this.router.navigate(['/dashboard'])
       })
       .catch((err) => console.log(err));
   }
@@ -45,7 +45,7 @@ export class Step0Component implements OnInit {
   signInWithGoogle() {
     this.authService.signInWithGoogle()
       .then((res) => {
-        this.router.navigate(['dashboard'])
+        this.router.navigate(['/dashboard'])
       })
       .catch((err) => console.log(err));
   }

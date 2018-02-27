@@ -39,6 +39,7 @@ export class AuthService {
       new firebase.auth.GoogleAuthProvider()
     );
   }
+  
   isLoggedIn() {
     if (this.userDetails == null) {
       return false;
@@ -46,6 +47,7 @@ export class AuthService {
       return true;
     }
   }
+
   logout() {
     this._firebaseAuth.auth.signOut().then(res => this.router.navigate(["/"]));
   }
