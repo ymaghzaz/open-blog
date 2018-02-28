@@ -12,7 +12,7 @@ export class AuthService {
   constructor(
     private _firebaseAuth: AngularFireAuth,
     private router: Router,
-    private afs: AngularFirestore
+    private ngFirestore: AngularFirestore
   ) {
     this.user = _firebaseAuth.authState;
     this.user.subscribe(user => {
@@ -39,7 +39,7 @@ export class AuthService {
       new firebase.auth.GoogleAuthProvider()
     );
   }
-  
+
   isLoggedIn() {
     if (this.userDetails == null) {
       return false;
@@ -63,7 +63,7 @@ export class AuthService {
     );
   }
 
-  loginInRegular(email, password) {
+  registerInRegular(email, password) {
     const credential = firebase.auth.EmailAuthProvider.credential(
       email,
       password
@@ -75,7 +75,7 @@ export class AuthService {
   }
 
   getLoginInfo() {
-    let usersInfos = this.afs.collection('users', ref => ref.where('userID', '==', '89oPn19AmohG9mcfOthgKBcxlbt1')).valueChanges().subscribe(c => {
+    let usersInfos = this.ngFirestore.collection('users', ref => ref.where('userID', '==', '89oPn19AmohG9mcfOthgKBcxlbt1')).valueChanges().subscribe(c => {
       console.log('data', c)
     })
   }

@@ -11,6 +11,7 @@ export class userRegisterInfos {
     city: string;
     zipCode: number;
     phoneNumbre: string;
+    registerStep: string;
     constructor(object?: any) {
 
         this.firstName = object && object.firstName || '';
@@ -23,5 +24,6 @@ export class userRegisterInfos {
         this.city = object && object.city || '';
         this.zipCode = object && object.zipCode || '';
         this.phoneNumbre = object && object.phoneNumbre || '';
+        this.registerStep = object && object.registerStep || '';
     }
 }

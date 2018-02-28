@@ -11,6 +11,9 @@ import { FirbaseConnectModule } from '../commun/firbase-connect/firbase-connect.
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { registerReducer } from './register.reducer';
+import { RegisterServiceService } from './services/register-service.service';
+import { ManageAuthService } from '../../services/manage-auth.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,10 +22,10 @@ import { registerReducer } from './register.reducer';
     StyleModule,
     FirbaseConnectModule,
     StoreModule.forFeature('register', {
-      register: registerReducer,
+      register: registerReducer
     })
   ],
   declarations: [RegisterComponent, Step0Component, Step1Component, Step2Component],
-  providers: [AuthService]
+  providers: [AuthService, RegisterServiceService, ManageAuthService]
 })
 export class RegisterModule { }

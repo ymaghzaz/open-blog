@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { userRegisterInfos } from '../models/user.step1';
+import { ManageAuthService } from '../../../services/manage-auth.service';
+import { RegisterServiceService } from '../services/register-service.service';
 
 @Component({
   selector: 'app-step0',
@@ -12,16 +14,20 @@ export class Step0Component implements OnInit {
 
   //test 
   public user: userRegisterInfos = new userRegisterInfos();
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,
+    private router: Router,
+    public registerService: RegisterServiceService) {
+    this.user.registerStep = '1';
+  }
 
   ngOnInit() {
   }
 
   signInWithEmail() {
-    this.authService.signInRegular(this.user.email, this.user.password)
+    this.authService.registerInRegular(this.user.email, this.user.password)
       .then((res) => {
-        console.log(res);
-        this.router.navigate(['/dashboard']);
+        this.user.userID = res.uid;
+        this.registerService.signIn(res.uid, this.user);
       })
       .catch((err) => console.log('error: ' + err));
   }
@@ -29,7 +35,7 @@ export class Step0Component implements OnInit {
   signInWithTwitter() {
     this.authService.signInWithTwitter()
       .then((res) => {
-        this.router.navigate(['/dashboard'])
+        this.signInWithSocialMedia(res);
       })
       .catch((err) => console.log(err));
   }
@@ -37,7 +43,7 @@ export class Step0Component implements OnInit {
   signInWithFacebook() {
     this.authService.signInWithFacebook()
       .then((res) => {
-        this.router.navigate(['/dashboard'])
+        this.signInWithSocialMedia(res);
       })
       .catch((err) => console.log(err));
   }
@@ -45,9 +51,16 @@ export class Step0Component implements OnInit {
   signInWithGoogle() {
     this.authService.signInWithGoogle()
       .then((res) => {
-        this.router.navigate(['/dashboard'])
+        console.log('google', res)
+        this.signInWithSocialMedia(res);
       })
       .catch((err) => console.log(err));
   }
 
+  private signInWithSocialMedia(res) {
+    this.user = new userRegisterInfos(res.user)
+    this.user.registerStep = '1';
+    this.user.userID = res.user && res.user.uid
+    this.registerService.signIn(this.user.userID, this.user);
+  }
 }

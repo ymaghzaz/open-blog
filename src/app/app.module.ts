@@ -13,6 +13,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CoreModule } from './core/index';
 import { SharedModule } from './shared/index';
 import { ngxMediumModule } from 'ngx-medium-editor';
+import { ManageAuthService } from './services/manage-auth.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { ngxMediumModule } from 'ngx-medium-editor';
     }),
 
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, ManageAuthService],
 
   bootstrap: [AppComponent]
 })
