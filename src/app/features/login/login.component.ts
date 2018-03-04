@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Store } from '@ngrx/store';
+import { ActionAuthLogin } from '../../core/index';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private store: Store<any>) {
     //this.authService.getLoginInfo()
   }
 
@@ -49,8 +51,8 @@ export class LoginComponent implements OnInit {
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
         console.log(res);
-
-        this.router.navigate(['/dashboard']);
+        this.store.dispatch(new ActionAuthLogin());
+        this.router.navigate(['/']);
       })
       .catch((err) => console.log('error: ' + err));
   }

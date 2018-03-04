@@ -14,6 +14,7 @@ import { CoreModule } from './core/index';
 import { SharedModule } from './shared/index';
 import { ngxMediumModule } from 'ngx-medium-editor';
 import { ManageAuthService } from './services/manage-auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,11 @@ import { ManageAuthService } from './services/manage-auth.service';
     FooterComponent
   ],
   imports: [
+
+    // angular
     BrowserModule,
+    BrowserAnimationsModule,
+
     AppRoutingModule,
     StyleModule,
     FirbaseConnectModule,
@@ -30,7 +35,7 @@ import { ManageAuthService } from './services/manage-auth.service';
     ngxMediumModule,
     // core & shared
     CoreModule,
-    //SharedModule,
+    SharedModule,
 
     //dev store
     StoreDevtoolsModule.instrument({
