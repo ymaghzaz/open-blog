@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Store } from '@ngrx/store';
 import { ActionAuthLogin } from '../../core/index';
+import { userRegisterInfos } from '../register/models/user.step1';
+import { ManageAuthService } from '../../services/manage-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +18,8 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private authService: AuthService, private router: Router, private store: Store<any>) {
-    //this.authService.getLoginInfo()
+  constructor(private authService: AuthService, private router: Router, private store: Store<any>,
+    public manageAuth: ManageAuthService) {
   }
 
   ngOnInit() {
@@ -26,7 +28,7 @@ export class LoginComponent implements OnInit {
   signInWithTwitter() {
     this.authService.signInWithTwitter()
       .then((res) => {
-        this.router.navigate(['dashboard'])
+        this.signInWithSocialMedia(res);
       })
       .catch((err) => console.log(err));
   }
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit {
   signInWithFacebook() {
     this.authService.signInWithFacebook()
       .then((res) => {
-        this.router.navigate(['dashboard'])
+        this.signInWithSocialMedia(res)
       })
       .catch((err) => console.log(err));
   }
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
   signInWithGoogle() {
     this.authService.signInWithGoogle()
       .then((res) => {
-        this.router.navigate(['dashboard'])
+        this.signInWithSocialMedia(res)
       })
       .catch((err) => console.log(err));
   }
@@ -50,10 +52,21 @@ export class LoginComponent implements OnInit {
   signInWithEmail() {
     this.authService.signInRegular(this.user.email, this.user.password)
       .then((res) => {
-        console.log(res);
-        this.store.dispatch(new ActionAuthLogin());
-        this.router.navigate(['/']);
+        const user = new userRegisterInfos({
+          userID: res.uid,
+          email: res.email
+        })
+        this.manageAuth.connect(user);
       })
       .catch((err) => console.log('error: ' + err));
+  }
+
+
+  private signInWithSocialMedia(res) {
+    console.log('emailll', res.user)
+    const user = new userRegisterInfos(res.user)
+    user.registerStep = '1';
+    user.userID = res.user && res.user.uid
+    this.manageAuth.connect(user);
   }
 }

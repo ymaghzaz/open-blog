@@ -1,5 +1,6 @@
 
 import { Action } from '@ngrx/store';
+import { userRegisterInfos } from '../../features/register/models/user.step1';
 
 
 export enum UserActionTypes {
@@ -17,11 +18,9 @@ export class ActionUpdateUser implements Action {
     constructor(public payload: any) { }
 }
 
-export type UserActions = ActionUpdateUser | ActionSetUser
+export type UserActions = ActionUpdateUser | ActionSetUser;
 
-export const initialState = {
-    isAuthenticated: false
-};
+export const initialState = new userRegisterInfos()
 
 export const selectorUser = state => state.user;
 

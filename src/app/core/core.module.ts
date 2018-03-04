@@ -11,6 +11,7 @@ import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local
 import { LocalStorageService } from './local-storage/local-storage.service';
 import { authReducer } from './auth/auth.reducer';
 import { AuthEffects } from './auth/auth.effects';
+import { UserReducer } from './user/user.reducer';
 
 export const metaReducers: MetaReducer<any>[] = [initStateFromLocalStorage];
 
@@ -27,7 +28,8 @@ if (!environment.production) {
     // ngrx
     StoreModule.forRoot(
       {
-        auth: authReducer
+        auth: authReducer,
+        user: UserReducer
       },
       { metaReducers }
     ),

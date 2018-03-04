@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store/src/store';
+import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs/Subject';
 import { selectorAuth } from '../core/index';
 import { takeUntil } from 'rxjs/operators/takeUntil';
@@ -14,13 +14,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<boolean> = new Subject<boolean>();
   isAuthenticated;
   constructor(
-    // private store: Store<any>
+    private store: Store<any>
 
   ) {
-    // this.store
-    //   .select(selectorAuth)
-    //   .pipe(takeUntil(this.unsubscribe$))
-    //   .subscribe(auth => (this.isAuthenticated = auth.isAuthenticated));
+    this.store
+      .select(selectorAuth)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(auth => (this.isAuthenticated = auth.isAuthenticated));
   }
 
   ngOnInit() {

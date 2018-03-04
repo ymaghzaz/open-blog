@@ -5,6 +5,7 @@ import { userRegisterInfos } from '../features/register/models/user.step1';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ActionAuthLogin, ActionAuthLogout } from '../core/index';
+import { ActionUpdateUser } from '../core/user/user.reducer';
 
 @Injectable()
 export class ManageAuthService {
@@ -19,6 +20,9 @@ export class ManageAuthService {
   }
 
   connect(user: userRegisterInfos) {
+    this.store.dispatch(new ActionUpdateUser(
+      Object.assign({}, user
+      )));
     this.onLoginClick();
     switch (user.registerStep) {
       case '':
