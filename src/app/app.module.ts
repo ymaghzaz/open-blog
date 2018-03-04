@@ -15,18 +15,22 @@ import { SharedModule } from './shared/index';
 import { ngxMediumModule } from 'ngx-medium-editor';
 import { ManageAuthService } from './services/manage-auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     AskResetPasswordComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
 
     // angular
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     AppRoutingModule,
     StyleModule,
