@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { userRegisterInfos } from '../features/register/models/user.step1';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ActionAuthLogin, ActionAuthLogout } from '../core/index';
+import { ActionAuthLogin, ActionAuthLogout, LocalStorageService } from '../core/index';
 import { ActionUpdateUser } from '../core/user/user.reducer';
 
 @Injectable()
@@ -13,7 +13,8 @@ export class ManageAuthService {
   constructor(
     private ngFirestore: AngularFirestore,
     private router: Router,
-    private store: Store<any>) { }
+    private store: Store<any>,
+    private localStorage: LocalStorageService) { }
 
   getUserInfo(userID: string): Observable<any> {
     return this.ngFirestore.collection('users', ref => ref.where('userID', '==', userID)).valueChanges();
@@ -23,17 +24,18 @@ export class ManageAuthService {
     this.store.dispatch(new ActionUpdateUser(
       Object.assign({}, user
       )));
+    this.localStorage.setItem('user', user);
     this.onLoginClick();
     switch (user.registerStep) {
       case '':
       case '1':
-        this.router.navigate(['/register/complete_information']);
+        this.router.navigate(['/#/register/complete_information']);
         break;
       case '2':
-        this.router.navigate(['/register/choose_program']);
+        this.router.navigate(['/#/register/choose_program']);
         break;
       default:
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/#/dashboard']);
     }
   }
 

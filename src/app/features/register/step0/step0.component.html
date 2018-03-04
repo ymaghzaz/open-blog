@@ -20,7 +20,7 @@
     <input name="phoneNumber" type="number" class="form-control" [(ngModel)]="user.phoneNumbre" placeholder="Numéro de mobile"
       required>
     <label for="inputPassword" class="sr-only">Mot de passe</label>
-    <input name="password" type="password" id="inputPassword" [(ngModel)]="user.password" class="form-control" placeholder="Mot de passe"
+    <input name="password" type="password" id="inputPassword" [(ngModel)]="password" class="form-control" placeholder="Mot de passe"
       required="">
     <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Créer un compte</button>
     <hr>
@@ -29,7 +29,7 @@
         Vous avez déjà un compte ?
       </label>
       <label>
-        <a _ngcontent-c1="" class="forgotten-pwd" href="/login">Se connecter</a>
+        <a _ngcontent-c1="" class="forgotten-pwd" href="/#/login">Se connecter</a>
       </label>
     </div>
 

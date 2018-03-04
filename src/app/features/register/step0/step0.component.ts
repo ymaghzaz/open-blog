@@ -14,6 +14,7 @@ export class Step0Component implements OnInit {
 
   //test 
   public user: userRegisterInfos = new userRegisterInfos();
+  password: string;
   constructor(private authService: AuthService,
     private router: Router,
     public registerService: RegisterServiceService) {
@@ -24,7 +25,7 @@ export class Step0Component implements OnInit {
   }
 
   signInWithEmail() {
-    this.authService.registerInRegular(this.user.email, this.user.password)
+    this.authService.registerInRegular(this.user.email, this.password)
       .then((res) => {
         this.user.userID = res.uid;
         this.registerService.signIn(res.uid, this.user);
