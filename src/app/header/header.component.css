@@ -1,0 +1,26 @@
+header {
+  min-height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+}
+
+h1,
+h3 {
+  margin-left: 1rem;
+  font-family: "Shadows Into Light", cursive;
+  color: #4d4b4b;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: white;
+}
+
+h1 {
+  align-self: center;
+}

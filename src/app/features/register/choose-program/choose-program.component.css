@@ -1,0 +1,12 @@
+h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.selectedDay {
+  display: flex;
+}
+
+.chooseTime {
+  display: flex;
+  flex-direction: column;
+}

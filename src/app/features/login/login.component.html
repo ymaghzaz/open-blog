@@ -3,14 +3,10 @@
   <!-- <medium-editor [(editorModel)]="textVar" [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3','quote']}}"
     [editorPlaceholder]="placeholderVar"></medium-editor> -->
   <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
-    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
 
-    <button type="button" class="btn btn-block  fa fa-google " (click)="signInWithGoogle()">
-      <i class="" aria-hidden="true"></i>
-      Connextion avec Google
-    </button>
-
-    <button type="buton" class="btn btn-block fa fa-facebook" (click)="signInWithFacebook()">
+    <h1 class="h3 mb-3 font-weight-normal">Identifiez-vous</h1>
+    <!-- <button type="buton" class="btn btn-block fa fa-facebook" (click)="signInWithFacebook()">
       <i class="" aria-hidden="true"></i>
       Connextion avec Facebook
     </button>
@@ -18,10 +14,9 @@
     <button type="button" class="btn btn-block fa fa-twitter" (click)="signInWithTwitter()">
       <i class="" aria-hidden="true"></i>
       Connextion avec Twitter
-    </button>
+    </button> -->
 
-    <hr>
-    <h1 class="h3 mb-3 font-weight-normal">Identifiez-vous</h1>
+
     <input name="email" type="email" id="inputEmail" [(ngModel)]="user.email" class="form-control" placeholder="Adresse e-mail"
       required="" autofocus="">
     <input name="password" type="password" id="inputPassword" [(ngModel)]="user.password" class="form-control" placeholder="Mot de passe"
@@ -32,8 +27,13 @@
       </label>
       <br>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Se connecter</button>
 
+    <hr>
+    <button class="btn btn-lg btn-default btn-block  fa fa-google" (click)="signInWithGoogle()">
+      <i class="" aria-hidden="true"></i>
+      Connextion avec Google
+    </button>
 
     <hr>
     <label>

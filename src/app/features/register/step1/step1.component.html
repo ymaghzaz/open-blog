@@ -6,8 +6,8 @@
         <h1>Inscription</h1>
       </div>
     </div>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
+    <div class="form-row input-group-lg">
+      <div class="col-md-6 mb-2">
         <label for="validationServer01">First name</label>
         <input name="firstName" [(ngModel)]="user.firstName" type="text" class="form-control  " id="validationServer01" placeholder="First name"
           value="Mark" required>
@@ -15,7 +15,7 @@
           Looks good!
         </div>
       </div>
-      <div class="col-md-4 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="validationServer02">Last name</label>
         <input name="lastName" [(ngModel)]="user.lastName" type="text" class="form-control " id="validationServer02" placeholder="Last name"
           value="Otto" required>
@@ -23,23 +23,11 @@
           Looks good!
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationServerUsername">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend3">@</span>
-          </div>
-          <input name="Username" [(ngModel)]="user.username" type="text" class="form-control " id="validationServerUsername" placeholder="Username"
-            aria-describedby="inputGroupPrepend3" required>
-          <div class="invalid-feedback">
-            Please choose a username.
-          </div>
-        </div>
-      </div>
+
     </div>
 
     <div class="form-row">
-      <div class="col-md-8 mb-3">
+      <div class="col-md-8 mb-4">
         <label for="inputAddress">Address</label>
         <input name="Address" [(ngModel)]="user.address" type="text" class="form-control  " id="inputAddress" placeholder="1234 Main St"
           required>
@@ -47,7 +35,7 @@
           Please provide a valid Address.
         </div>
       </div>
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-4">
         <label for="inputAddress2">Address 2</label>
         <input name="Address2" [(ngModel)]="user.address2" type="text" class="form-control  " id="inputAddress2" placeholder="Apartment, studio, or floor">
         <div class="invalid-feedback">

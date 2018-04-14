@@ -1,20 +1,18 @@
 <div class="text-center">
   <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
-    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <button type="button" class="btn btn-block  fa fa-google " (click)="signInWithGoogle()">
-      <i class="" aria-hidden="true"></i>
-      Continuer avec Google
-    </button>
-    <button type="buton" class="btn btn-block fa fa-facebook" (click)="signInWithFacebook()">
+    <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+
+    <!-- <button type="buton" class="btn btn-block fa fa-facebook" (click)="signInWithFacebook()">
       <i class="" aria-hidden="true"></i>
       Continuer avec Facebook
     </button>
     <button type="button" class="btn btn-block fa fa-twitter" (click)="signInWithTwitter()">
       <i class="" aria-hidden="true"></i>
       Continuer avec Twitter
-    </button>
-    <hr>
-    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+    </button> -->
+
+
     <input name="email" type="email" id="inputEmail" [(ngModel)]="user.email" class="form-control" placeholder="Adresse e-mail"
       required="" autofocus="">
     <input name="phoneNumber" type="number" class="form-control" [(ngModel)]="user.phoneNumbre" placeholder="Numéro de mobile"
@@ -23,6 +21,13 @@
     <input name="password" type="password" id="inputPassword" [(ngModel)]="password" class="form-control" placeholder="Mot de passe"
       required="">
     <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Créer un compte</button>
+    <hr>
+
+    <button type="button" class="btn btn-block  fa fa-google " (click)="signInWithGoogle()">
+      <i class="" aria-hidden="true"></i>
+      Continuer avec Google
+    </button>
+
     <hr>
     <div class="checkbox mb-3">
       <label>

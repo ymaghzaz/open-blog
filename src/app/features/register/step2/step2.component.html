@@ -1,20 +1,19 @@
-<div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div *ngFor="let offer of offers" class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">{{offer.name}}</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">€ {{offer.price}}
-          <small class="text-muted">/ an</small>
-        </h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li *ngFor="let type of offer.types">{{type}}</li>
-          <li>Phone and email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-      </div>
+<div class="step2">
+    <div class="student">
+        <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
+            <select name="gender" class="form-control" [(ngModel)]="student.gender">
+                <option>Monsieur</option>
+                <option>Madame</option>
+            </select>
+            <input name="firstNAme" type="string" id="inputEmail" [(ngModel)]="student.firstName" class="form-control" placeholder="Prenom"
+                required="" autofocus="">
+            <input name="lastName" type="string" class="form-control" [(ngModel)]="student.lastName" placeholder="Nom" required>
+            <input name="age" type="number" class="form-control" [(ngModel)]="student.age" placeholder="l'age" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="storeStudent()" [disabled]="formCtrl.form.invalid">ajouter cette eleve </button>
+            <hr>
+
+        </form>
     </div>
-  </div>
+
+    <app-choose-program></app-choose-program>
 </div>

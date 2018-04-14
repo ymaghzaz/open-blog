@@ -12,18 +12,23 @@ export class userRegisterInfos {
     zipCode: number;
     phoneNumbre: string;
     registerStep: string;
-    constructor(object?: any) {
-
-        this.firstName = object && object.firstName || '';
-        this.lastName = object && object.lastName || '';
-        this.userID = object && object.userID || '';
-        this.username = object && object.username || '';
-        this.email = object && object.email || '';
-        this.address = object && object.address || '';
-        this.address2 = object && object.address2 || '';
-        this.city = object && object.city || '';
-        this.zipCode = object && object.zipCode || '';
-        this.phoneNumbre = object && object.phoneNumbre || '';
-        this.registerStep = object && object.registerStep || '';
+    picture: string;
+    verified_email: boolean;
+    gender: string;
+    constructor(userProfile?: any) {
+        this.firstName = userProfile && userProfile.firstName || '';
+        this.lastName = userProfile && userProfile.lastName || '';
+        this.userID = userProfile && userProfile.userID || '';
+        this.username = userProfile && userProfile.username || '';
+        this.email = userProfile && userProfile.email || '';
+        this.address = userProfile && userProfile.address || '';
+        this.address2 = userProfile && userProfile.address2 || '';
+        this.city = userProfile && userProfile.city || '';
+        this.zipCode = userProfile && userProfile.zipCode || '';
+        this.phoneNumbre = userProfile && userProfile.phoneNumbre || null;
+        this.registerStep = userProfile && userProfile.registerStep || '';
+        this.picture = userProfile && userProfile.picture || null;
+        this.verified_email = userProfile && userProfile.verified_email || false;
+        this.gender = userProfile && userProfile.gender || null;
     }
 }

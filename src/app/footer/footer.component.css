@@ -1,8 +1,8 @@
-footer{
-    padding: 40px;
-    margin: 0 auto;
-}
-
-.centreYear{
-    text-align: center;
+.footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
 }
