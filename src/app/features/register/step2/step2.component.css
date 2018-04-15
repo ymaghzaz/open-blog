@@ -1,7 +1,40 @@
 .step2 {
   width: 100%;
-  max-width: 330px;
+  max-width: 20rem;
   padding: 15px;
   margin: 0 auto;
+  margin-top: 5rem;
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .step2 {
+    width: 100%;
+    max-width: 900px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 5rem;
+  }
+}
+.students {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.studentInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.hand {
+  cursor: pointer;
+}
+h2 {
   margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.valideStudentList {
+  margin-top: 3rem;
 }

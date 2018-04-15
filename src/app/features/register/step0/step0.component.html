@@ -15,7 +15,7 @@
 
     <input name="email" type="email" id="inputEmail" [(ngModel)]="user.email" class="form-control" placeholder="Adresse e-mail"
       required="" autofocus="">
-    <input name="phoneNumber" type="number" class="form-control" [(ngModel)]="user.phoneNumbre" placeholder="Numéro de mobile"
+    <input name="phoneNumber" type="number" max="10" class="form-control" [(ngModel)]="user.phoneNumbre" placeholder="Numéro de mobile"
       required>
     <label for="inputPassword" class="sr-only">Mot de passe</label>
     <input name="password" type="password" id="inputPassword" [(ngModel)]="password" class="form-control" placeholder="Mot de passe"

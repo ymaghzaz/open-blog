@@ -15,6 +15,9 @@ import { RegisterServiceService } from "./services/register-service.service";
 import { ManageAuthService } from "../../services/manage-auth.service";
 import { SharedModule } from "../../shared/index";
 import { ChooseProgramComponent } from "./choose-program/choose-program.component";
+import { Step3Component } from "./step3/step3.component";
+import { PaypalComponent } from "./paypal/paypal.component";
+import { Step4Component } from "./step4/step4.component";
 
 @NgModule({
   imports: [
@@ -33,6 +36,9 @@ import { ChooseProgramComponent } from "./choose-program/choose-program.componen
     Step0Component,
     Step1Component,
     Step2Component,
+    Step3Component,
+    Step4Component,
+    PaypalComponent,
     ChooseProgramComponent
   ],
   providers: [AuthService, RegisterServiceService, ManageAuthService]

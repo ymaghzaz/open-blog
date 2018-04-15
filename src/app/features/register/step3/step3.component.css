@@ -1,0 +1,63 @@
+.step3 {
+  width: 100%;
+  max-width: 200rem;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .step3 {
+    width: 50rem;
+    max-width: 900px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 5rem;
+  }
+}
+
+/* Tables
+================================== */
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+  list-style: none;
+}
+
+/* Table column sizing
+================================== */
+.Rtable--2cols > .Rtable-cell {
+  width: 50%;
+}
+.Rtable--3cols > .Rtable-cell {
+  width: 33.33%;
+}
+.Rtable--4cols > .Rtable-cell {
+  width: 25%;
+}
+.Rtable--5cols > .Rtable-cell {
+  width: 20%;
+}
+.Rtable--6cols > .Rtable-cell {
+  width: 16.6%;
+}
+
+.someInfromation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.totalPrice {
+  justify-self: flex-end;
+  align-self: flex-end;
+}

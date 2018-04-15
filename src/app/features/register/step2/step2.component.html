@@ -1,19 +1,59 @@
 <div class="step2">
-    <div class="student">
-        <form class="form-signin" name="userform" method="post" #formCtrl="ngForm">
+
+    <div class="first" *ngIf="!students.length">
+        <h3> Veuillez ajouter le permier étudiant qui va suiver les cours </h3>
+        <button class="btn btn-lg btn-primary btn-block" (click)="addfirstStudent()">
+            <i class="fa  fa-user fa-lg"></i> ajouter le permier étudiant </button>
+    </div>
+
+    <div class="students" *ngIf="students.length">
+        <h3> La list des étudiants que vous avez enregistrer</h3>
+        <div *ngFor="let st of students;let i =index" class="studentInfo">
+            <p>
+                <i class="fa  fa-user fa-lg"></i>
+            </p>
+            <p> {{st.firstName}} </p>
+            <p> {{st.lastName}} </p>
+            <p class="hand" (click)="modifyStudentInfo(st,i)">
+                <i class="fa  fa-edit fa-lg "></i>
+            </p>
+            <p class="hand" (click)="removeUser(st,i)">
+                <i class="fa  fa-remove fa-lg "></i>
+            </p>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" (click)=" addAnotherStudent()">
+            <i class="fa  fa-user fa-lg"></i> ajouter un autre étudiant </button>
+
+    </div>
+
+    <div class="student" *ngIf="student">
+        <form class="form-signin" name="userform" #formCtrl="ngForm">
             <select name="gender" class="form-control" [(ngModel)]="student.gender">
                 <option>Monsieur</option>
                 <option>Madame</option>
             </select>
-            <input name="firstNAme" type="string" id="inputEmail" [(ngModel)]="student.firstName" class="form-control" placeholder="Prenom"
+            <input name="firstName" type="string" id="inputEmail" [(ngModel)]="student.firstName" class="form-control" placeholder="Prenom"
                 required="" autofocus="">
             <input name="lastName" type="string" class="form-control" [(ngModel)]="student.lastName" placeholder="Nom" required>
             <input name="age" type="number" class="form-control" [(ngModel)]="student.age" placeholder="l'age" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="storeStudent()" [disabled]="formCtrl.form.invalid">ajouter cette eleve </button>
-            <hr>
-
+            <app-choose-program [cours]="student.cours" [selectedDays]="student.selectedDays"></app-choose-program>
+            <button *ngIf="!updateStudentInfo" class="btn btn-lg btn-primary btn-block" (click)="storeStudentInfo()" [disabled]="formCtrl.form.invalid">
+                confirmer l'ajouter </button>
+            <button *ngIf="updateStudentInfo" class="btn btn-lg btn-primary btn-block" (click)="updateStudentParams()" [disabled]="formCtrl.form.invalid">
+                modifier les informations </button>
+            <button class="btn btn-lg btn-primary btn-block" (click)="cancel()">
+                annuler l'ajouter </button>
         </form>
+        <hr>
+
     </div>
 
-    <app-choose-program></app-choose-program>
+
+    <div class="valideStudentList" *ngIf="students.length && !student">
+        <button class=" btn btn-lg btn-primary btn-block " (click)="confirmInfo() ">
+            valider ces informations </button>
+    </div>
+
+
+
 </div>

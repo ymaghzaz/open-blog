@@ -1,0 +1,53 @@
+<div class="payment step3">
+  <h1>
+    Payment
+  </h1>
+
+  <div class="Rtable Rtable--4cols">
+    <div class="Rtable-cell">
+      <h3>
+        <i class="fa  fa-user fa-lg"></i>
+      </h3>
+    </div>
+    <div class="Rtable-cell">nom</div>
+    <div class="Rtable-cell">nomber d'heure</div>
+    <div class="Rtable-cell">
+      <strong>prix</strong>
+    </div>
+  </div>
+  <div class="Rtable Rtable--4cols" *ngFor="let st of students;let i =index">
+    <div class="Rtable-cell">
+      <h3>
+        <i class="fa  fa-user fa-lg"></i>
+      </h3>
+    </div>
+    <div class="Rtable-cell">{{st.firstName}} {{st.lastName}}
+    </div>
+    <div class="Rtable-cell"> {{displayCours(st)}} </div>
+    <div class="Rtable-cell">
+      <strong>{{displayPrice(st)}}</strong>
+    </div>
+  </div>
+
+  <div class="someInfromation">
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="city" (change)='updatePriceInfo()' [(ngModel)]="city" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        est ce que vous habiter a Guyancourt ?
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="umg" (change)='updatePriceInfo()' [(ngModel)]="umg" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        Vous êtes adhérent de l'UMG ?
+      </label>
+    </div>
+
+    <div class="totalPrice">
+      <strong> prix total : {{priceToBeGetFromUser}} EUR
+      </strong>
+      <app-paypal [paymentAmount]='priceToBeGetFromUser' [checkout]='checkoutPaypal'></app-paypal>
+    </div>
+  </div>
+</div>

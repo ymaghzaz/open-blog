@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { Student } from "../models/student.model";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-choose-program",
@@ -7,73 +6,10 @@ import { Student } from "../models/student.model";
   styleUrls: ["./choose-program.component.css"]
 })
 export class ChooseProgramComponent implements OnInit {
-  cours: any = [];
-  selectedDays = [];
-  studens: Array<Student> = [];
-  student: Student = new Student();
-  constructor() {
-    this.selectedDays = [
-      {
-        name: "lundi",
-        selected: false,
-        morning: false,
-        afternon: false,
-        evening: false
-      },
-      {
-        name: "mardi",
-        selected: false,
-        morning: false,
-        evening: false,
-        afternon: false
-      },
-      {
-        name: "mercredi",
-        selected: false,
-        morning: false,
-        evening: false,
-        afternon: false
-      },
-      {
-        name: "jeudi",
-        selected: false,
-        morning: false,
-        evening: false,
-        afternon: false
-      },
-      {
-        name: "vendredi",
-        selected: false,
-        morning: false,
-        evening: false,
-        afternon: false
-      },
-      {
-        name: "samedi",
-        selected: false,
-        morning: false,
-        evening: false,
-        afternon: false
-      },
-      {
-        name: "dimanche",
-        selected: false,
-        morning: false,
-        evening: false,
-        afternon: false
-      }
-    ];
-    this.cours = [
-      {
-        name: "ar",
-        NumberOfHours: 0
-      },
-      {
-        name: "cr",
-        NumberOfHours: 0
-      }
-    ];
-  }
+  @Input() cours: any;
+  @Input() selectedDays: any;
+
+  constructor() {}
 
   ngOnInit() {}
 

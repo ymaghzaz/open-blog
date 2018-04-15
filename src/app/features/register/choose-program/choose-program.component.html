@@ -1,12 +1,13 @@
 <div class="chooseProgram">
-  <h3>Veuillez enter le nombre d'horaire souhaité par cours</h3>
-  <div *ngFor="let cour of cours" class="input-group input-group-lg">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-lg">{{cour.name}}</span>
+  <h3>Veuillez enter le nombre d'horaire souhaité de cours par semaine</h3>
+  <div *ngFor="let cour of cours" class="input-group input-group-lg course">
+    <div class="input-group-prepend courseName">
+      <span class="input-group-text " id="inputGroup-sizing-lg">{{cour.name}}</span>
     </div>
-    <input type="number" max="10" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="cour.NumberOfHours">
+    <input class="courseInput" type="number" max="10" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+      [(ngModel)]="cour.numberOfHours">
   </div>
-  <h3> Veuillez choisir une date qui vous convient </h3>
+  <h3> Veuillez choisir les jours qui vous convient </h3>
   <div class="selectedDay" *ngFor="let day of selectedDays">
     <button class="btn btn-lg  btn-block" [class.btn-info]="day.selected" (click)="selectDay(day)"> {{day.name}} </button>
     <div *ngIf="day.selected" class="chooseTime">

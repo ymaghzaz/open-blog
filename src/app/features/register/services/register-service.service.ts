@@ -5,6 +5,7 @@ import {
   AngularFirestoreCollection
 } from "angularfire2/firestore";
 import { ManageAuthService } from "../../../services/manage-auth.service";
+import { Student } from "../models/student.model";
 
 @Injectable()
 export class RegisterServiceService {
@@ -37,5 +38,39 @@ export class RegisterServiceService {
 
   updateUserInfo(user: userRegisterInfos) {
     this.itemsCollection.doc(user.userID).update({ ...user });
+  }
+
+  setStudent(user: userRegisterInfos, students: any) {
+    students.map((student: Student) => {
+      const db = this.itemsCollection.doc(user.userID).collection("students");
+      console.log(" update ,", student.age, student.id);
+      if (student && student.id) {
+        db.doc(student.id).update({ ...student });
+      } else {
+        const studentID =
+          user.userID.toString() +
+          "__" +
+          student.firstName.toString() +
+          "__" +
+          student.lastName.toString() +
+          "__" +
+          Date.now().toString();
+        student.id = (student && student.id) || studentID;
+        db.doc(student.id).set({ ...student });
+      }
+    });
+  }
+
+  getStudentsInfo(user: userRegisterInfos) {
+    return this.itemsCollection
+      .doc(user.userID)
+      .collection("students")
+      .valueChanges();
+  }
+  checkoutUser(user: userRegisterInfos, paymentInfo) {
+    this.itemsCollection
+      .doc(user.userID)
+      .collection("payment")
+      .add(paymentInfo);
   }
 }

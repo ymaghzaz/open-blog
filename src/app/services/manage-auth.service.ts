@@ -40,6 +40,9 @@ export class ManageAuthService {
         case "2":
           this.router.navigate(["register/choose_program"]);
           break;
+        case "3":
+          this.router.navigate(["register/payment"]);
+          break;
         default:
           this.router.navigate(["dashboard"]);
       }
