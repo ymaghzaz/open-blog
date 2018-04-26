@@ -25,7 +25,7 @@ export class PaypalComponent {
     payment: (data, actions) => {
       return actions.payment.create({
         payment: {
-          transactions: [{ amount: { total: "1", currency: "EUR" } }] //this.paymentAmount
+          transactions: [{ amount: { total: "33", currency: "EUR" } }] //this.paymentAmount
         }
       });
     },
