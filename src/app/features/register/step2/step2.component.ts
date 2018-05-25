@@ -41,12 +41,10 @@ export class Step2Component implements OnInit {
     const student = new Student(this.student);
     this.students.push(student);
     this.student = null;
-    console.log(student);
   }
 
   public updateStudentParams() {
     this.students[this.studentIndexToBeUpdated] = new Student(this.student);
-    console.log(this.students);
     this.student = null;
   }
   public addfirstStudent() {

@@ -25,13 +25,14 @@ export class PaypalComponent {
     payment: (data, actions) => {
       return actions.payment.create({
         payment: {
-          transactions: [{ amount: { total: "33", currency: "EUR" } }] //this.paymentAmount
+          transactions: [
+            { amount: { total: this.paymentAmount, currency: "EUR" } }
+          ]
         }
       });
     },
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then(payment => {
-        // show success page
         this.checkout.next(payment);
       });
     }

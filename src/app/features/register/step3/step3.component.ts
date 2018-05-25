@@ -123,7 +123,6 @@ export class Step3Component implements OnInit {
   }
 
   checkout(payment) {
-    console.log("payment info", payment);
     const paymentInfo: any = {};
     paymentInfo.userID = this.user.userID;
     paymentInfo.paymentAmount = this.priceToBeGetFromUser;
