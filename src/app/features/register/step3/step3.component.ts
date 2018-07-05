@@ -27,7 +27,7 @@ export class Step3Component implements OnInit {
     private store: Store<any>,
     public registerService: RegisterServiceService,
     public router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.store.select(selectorStudents).subscribe(students => {
@@ -126,11 +126,22 @@ export class Step3Component implements OnInit {
     const paymentInfo: any = {};
     paymentInfo.userID = this.user.userID;
     paymentInfo.paymentAmount = this.priceToBeGetFromUser;
+    paymentInfo.coursePriceAmount = 3;
+    paymentInfo.umgSubscription = this.umg;
+    paymentInfo.cityDiscount = this.city;
     paymentInfo.timeStamp = Date.now().toString();
     const date = new Date();
-    paymentInfo.date = date.toString();
+    paymentInfo.requestDate = date.toString();
+    paymentInfo.paymentConfirmed = false;
+    paymentInfo.date = null;
     this.registerService.checkoutUser(this.user, paymentInfo);
+    this.user.registerStep = "4";
+    this.registerService.updateUserInfo(this.user);
     this.router.navigate(["register/thanks"]);
-    console.log("bravo");
+  }
+
+
+  confirmPaymentAmount() {
+    this.checkoutPaypal.next(this.priceToBeGetFromUser);
   }
 }

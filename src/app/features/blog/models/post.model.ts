@@ -4,6 +4,7 @@ export class PostBlog {
   postTime: string = "9 mins";
   description: string;
   postDescription: string;
+  display: any;
 
   constructor(post) {
     this.title = (post && post.title) || this.title;

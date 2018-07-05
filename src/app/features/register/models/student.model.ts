@@ -11,7 +11,9 @@ export class Student {
   selectedDays: any;
   cours: any;
   id: string;
+  responsibleId: string;
   constructor(student?: any) {
+    this.responsibleId = (student && student.responsibleId) || null;
     this.id = (student && student.id) || null;
     this.firstName = (student && student.firstName) || null;
     this.lastName = (student && student.lastName) || null;

@@ -22,7 +22,7 @@ export class Step2Component implements OnInit {
     private store: Store<any>,
     public registerService: RegisterServiceService,
     public router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.store.select(selectorUser).subscribe(user => {
@@ -48,11 +48,15 @@ export class Step2Component implements OnInit {
     this.student = null;
   }
   public addfirstStudent() {
-    this.student = new Student();
+    this.student = new Student({
+      responsibleId: this.user.userID
+    });
     this.updateStudentInfo = false;
   }
   public addAnotherStudent() {
-    this.student = new Student();
+    this.student = new Student({
+      responsibleId: this.user.userID
+    });
     this.updateStudentInfo = false;
   }
   public modifyStudentInfo(student, studentIndex) {
@@ -70,7 +74,9 @@ export class Step2Component implements OnInit {
   public confirmInfo() {
     const students = JSON.parse(JSON.stringify(this.students));
     this.store.dispatch(new ActionSetStudents(students));
+    this.user.registerStep = "3";
     this.registerService.setStudent(this.user, students);
+    this.registerService.updateUserInfo(this.user);
     this.router.navigate(["register/payment"]);
   }
 }

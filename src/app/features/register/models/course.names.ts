@@ -4,7 +4,7 @@ export const COURSES = [
     id: 1
   },
   {
-    name: "couran",
+    name: "coran",
     id: 2
   }
 ];

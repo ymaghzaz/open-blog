@@ -47,7 +47,9 @@
     <div class="totalPrice">
       <strong> prix total : {{priceToBeGetFromUser}} EUR
       </strong>
-      <app-paypal [paymentAmount]='priceToBeGetFromUser' [checkout]='checkoutPaypal'></app-paypal>
+      <!-- <app-paypal [paymentAmount]='priceToBeGetFromUser' [checkout]='checkoutPaypal'></app-paypal> -->
+      <button class="btn btn-lg btn-primary btn-block" (click)="confirmPaymentAmount()">
+        valider </button>
     </div>
   </div>
 </div>
