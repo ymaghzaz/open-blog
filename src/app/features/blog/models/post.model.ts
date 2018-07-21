@@ -5,7 +5,7 @@ export class PostBlog {
   postTime: string = "9 mins";
   description: string;
   postDescription: string;
-  display: any;
+ 
 
   constructor(post) {
     this.postID = (post && post.postID) || this.postID;
@@ -14,5 +14,6 @@ export class PostBlog {
     this.postTime = (post && post.postTime) || this.postTime;
     this.description = post && post.description;
     this.postDescription = post && post.postDescription;
+   
   }
 }

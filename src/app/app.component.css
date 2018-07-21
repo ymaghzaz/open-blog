@@ -1,0 +1,11 @@
+.app {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+
+.main {
+  min-height: 42rem;
+  background: #e6ecf0 !important;  
+}  

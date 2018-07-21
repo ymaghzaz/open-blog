@@ -5,9 +5,13 @@ import { BlogRoutingModule } from "./blog-rooting.module";
 import { FormsModule } from "@angular/forms";
 import { SharedModule } from "../../shared/index";
 import { PostBlogService } from "./services/post-blog.service";
+import { PostComponent } from "./post/post.component";
+import { SubPostComponent } from "./sub-post/sub-post.component";
+import { EditPostComponent } from "./edit-post/edit-post.component";
+ 
 @NgModule({
   providers: [PostBlogService],
   imports: [CommonModule, FormsModule, SharedModule, BlogRoutingModule],
-  declarations: [HomePageComponent]
+  declarations: [HomePageComponent, PostComponent,SubPostComponent,EditPostComponent]
 })
 export class BlogModule {}
