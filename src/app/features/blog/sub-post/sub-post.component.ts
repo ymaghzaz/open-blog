@@ -24,10 +24,7 @@ export class SubPostComponent implements OnInit , OnDestroy{
   }
 
   display(){
- 
-        console.log('helo',this.post.postID )
-        this.router.navigate([`/post/${this.post.postID}`])
-   
+    window.open(this.post.url, '_blank');
   }
   ngOnInit() {}
 
