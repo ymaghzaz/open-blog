@@ -22,6 +22,7 @@ export class HomePageComponent implements OnInit {
       .subscribe(auth => (this.isAuthenticated = auth.isAuthenticated));
 
     this.postList = postBlogService.postList;
+    console.log(this.postList)
   }
 
   ngOnInit() {}

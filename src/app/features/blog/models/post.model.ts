@@ -1,19 +1,24 @@
 export class PostBlog {
-  postID:string;
-  title: string = "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.";
-  image: string = "https://img3.telestar.fr/var/telestar/storage/images/3/0/9/0/3090515/la-casa-papel_width1024.jpg";
-  postTime: string = "9 mins";
-  description: string;
+  ID:string;
+  local_ID:string;
+  title: string ;
+  image: string ;
+  content: string;
   postDescription: string;
- 
+  excerpt:string;
+  date:Date;
+  url:string;
 
-  constructor(post) {
-    this.postID = (post && post.postID) || this.postID;
-    this.title = (post && post.title) || this.title;
-    this.image = (post && post.image) || this.image;
-    this.postTime = (post && post.postTime) || this.postTime;
-    this.description = post && post.description;
+  constructor(post?:any) {
+    this.ID = (post && post.global_ID)  || (post && post.ID) || null;
+    this.local_ID = (post && post.ID) || (post && post.local_ID)  || null;
+    this.title = (post && post.title) || null;
+    this.url = (post && post.short_URL) ||(post && post.url) || null; 
+    this.image = (post && post.featured_image) ||(post && post.featured_image) || null;
+    this.date = (post && post.date) || null;
+    this.content = post && post.content;
     this.postDescription = post && post.postDescription;
+    this.excerpt = post && post.excerpt;
    
   }
 }
