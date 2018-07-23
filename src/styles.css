@@ -10,13 +10,7 @@ body {
   background: #e6ecf0 !important;
 }
 
-.main {
-  display: flex;
-  direction: column;
-  justify-content: center;
-  min-height: 40rem;
-  background: #e6ecf0 !important;
-}
+
 
 /* Facebook */
 .fa-facebook {

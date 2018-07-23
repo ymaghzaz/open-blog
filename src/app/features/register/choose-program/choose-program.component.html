@@ -1,19 +1,43 @@
 <div class="chooseProgram">
-  <h3>Veuillez enter le nombre d'horaire souhaité de cours par semaine</h3>
-  <div *ngFor="let cour of cours" class="input-group input-group-lg course">
-    <div class="input-group-prepend courseName">
-      <span class="input-group-text " id="inputGroup-sizing-lg">{{cour.name}}</span>
+  <h3>Veuillez selectionner le cours souhaité </h3>
+  <div class="choose-course">  
+
+    <div *ngFor="let cour of COURSES" class="input-group input-group-lg course">
+      <div class="input-group-prepend courseName">
+        <span class="input-group-text " id="inputGroup-sizing-lg">{{cour.name}}</span>
+      </div>
+      <button *ngIf='!isCourseSelected(cour.id)'  class="courseInput btn btn-lg btn-primary btn-block" (click)='addCourse(cour)' aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+          ajouter ce cours
+        </button>
+      <button *ngIf='isCourseSelected(cour.id)'  class="courseInput btn btn-lg btn-primary btn-block" (click)='removeCourse(cour)' aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+          supprimer ce cours
+      </button>
     </div>
-    <input class="courseInput" type="number" max="10" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
-      [(ngModel)]="cour.numberOfHours">
+
   </div>
-  <h3> Veuillez choisir les jours qui vous convient </h3>
+
+<div class="select-niveau" *ngIf="cours.length" >
+  <h3>spécifier le niveau </h3>
+  <div *ngFor="let course of cours" class="input-group input-group-lg course">
+      <div class="input-group-prepend courseName">
+        <span class="input-group-text " id="inputGroup-sizing-lg">{{course.name}}</span>
+      </div>
+      <select class="courseInput" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="course.niveau">
+          <option value="1">1: Débutant</option>
+          <option value="2">2: Élémentaire </option>
+          <option value="3">3: Pré-intermédiaire </option>
+          <option value="4">4: Intermédiaire</option>
+        </select>
+
+    </div>
+  </div>
+  <!-- <h3> Veuillez choisir les jours qui vous convient </h3>
   <div class="selectedDay" *ngFor="let day of selectedDays">
     <button class="btn btn-lg  btn-block" [class.btn-info]="day.selected" (click)="selectDay(day)"> {{day.name}} </button>
-    <div *ngIf="day.selected" class="chooseTime">
+   <div *ngIf="day.selected" class="chooseTime">
       <button class="btn btn-lg  btn-block" [class.btn-info]="day.morning" (click)="day.morning=!day.morning"> matin</button>
       <button class="btn btn-lg  btn-block" [class.btn-info]="day.afternon" (click)="day.afternon=!day.afternon"> après-midi</button>
       <button class="btn btn-lg  btn-block" [class.btn-info]="day.evening" (click)="day.evening=!day.evening">soir</button>
-    </div>
-  </div>
+    </div>  
+  </div> -->
 </div>

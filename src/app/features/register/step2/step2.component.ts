@@ -38,9 +38,15 @@ export class Step2Component implements OnInit {
     });
   }
   public storeStudentInfo() {
+    
     const student = new Student(this.student);
-    this.students.push(student);
-    this.student = null;
+    if(student.cours.length === 0){
+        // to be replace by popup
+        alert('veuillez selectionner un cours')
+    }else{
+      this.students.push(student);
+      this.student = null;
+    }
   }
 
   public updateStudentParams() {

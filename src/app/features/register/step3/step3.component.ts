@@ -41,7 +41,7 @@ export class Step3Component implements OnInit {
         const students = JSON.parse(JSON.stringify(st));
         this.students = students;
         this.store.dispatch(new ActionSetStudents(students));
-        this.totalPrice();
+        //this.totalPrice();
         //this.checkout("payment");
       });
     });
@@ -54,19 +54,19 @@ export class Step3Component implements OnInit {
     });
   }
   public updatePriceInfo() {
-    this.totalPrice();
+     // this.totalPrice();
   }
   public displayCours(student: Student) {
     let display = "";
     student.cours.map((course: Course) => {
-      if (course.numberOfHours > 0) {
+      if (course.niveau > 0) {
         display =
           display +
           " " +
           course.name +
-          " " +
-          course.numberOfHours.toString() +
-          " h";
+          " Niveau : " +
+          course.niveau.toString() ;
+        
       }
     });
     return display;
@@ -81,9 +81,9 @@ export class Step3Component implements OnInit {
     let numberOfCourse = 0;
     let numberOfsession = 0;
     student.cours.map((course: Course) => {
-      if (course.numberOfHours > 0) {
+      if (course.niveau > 0) {
         numberOfCourse++;
-        numberOfsession += course.numberOfHours;
+        numberOfsession += course.niveau;
       }
     });
 
@@ -125,7 +125,7 @@ export class Step3Component implements OnInit {
   checkout(payment) {
     const paymentInfo: any = {};
     paymentInfo.userID = this.user.userID;
-    paymentInfo.paymentAmount = this.priceToBeGetFromUser;
+    paymentInfo.paymentAmount = 'TOBE_DEFINED';
     paymentInfo.coursePriceAmount = 3;
     paymentInfo.umgSubscription = this.umg;
     paymentInfo.cityDiscount = this.city;
@@ -142,6 +142,6 @@ export class Step3Component implements OnInit {
 
 
   confirmPaymentAmount() {
-    this.checkoutPaypal.next(this.priceToBeGetFromUser);
+    this.checkoutPaypal.next('TOBE_DEFINED');
   }
 }

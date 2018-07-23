@@ -24,3 +24,13 @@ h3 {
 .input-group-text {
   width: 100%;
 }
+
+.choose-course{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.select-niveau{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
