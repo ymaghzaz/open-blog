@@ -9,11 +9,11 @@
         <i class="fa  fa-user fa-lg"></i>
       </h3>
     </div>
-    <div class="Rtable-cell">nom</div>
-    <div class="Rtable-cell">nomber d'heure</div>
-    <div class="Rtable-cell">
+    <div class="Rtable-cell">Nom</div>
+    <div class="Rtable-cell">Niveau</div>
+    <!-- <div class="Rtable-cell">
       <strong>prix</strong>
-    </div>
+    </div> -->
   </div>
   <div class="Rtable Rtable--4cols" *ngFor="let st of students;let i =index">
     <div class="Rtable-cell">
@@ -24,9 +24,9 @@
     <div class="Rtable-cell">{{st.firstName}} {{st.lastName}}
     </div>
     <div class="Rtable-cell"> {{displayCours(st)}} </div>
-    <div class="Rtable-cell">
+    <!-- <div class="Rtable-cell">
       <strong>{{displayPrice(st)}}</strong>
-    </div>
+    </div> -->
   </div>
 
   <div class="someInfromation">
@@ -45,8 +45,8 @@
     </div>
 
     <div class="totalPrice">
-      <strong> prix total : {{priceToBeGetFromUser}} EUR
-      </strong>
+      <!-- <strong> prix total : {{priceToBeGetFromUser}} EUR
+      </strong> -->
       <!-- <app-paypal [paymentAmount]='priceToBeGetFromUser' [checkout]='checkoutPaypal'></app-paypal> -->
       <button class="btn btn-lg btn-primary btn-block" (click)="confirmPaymentAmount()">
         valider </button>

@@ -12,6 +12,6 @@ export class Step4Component implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(["/"]);
-    }, 5000);
+    }, 6000);
   }
 }

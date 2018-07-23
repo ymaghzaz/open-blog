@@ -19,7 +19,7 @@ export class Student {
     this.lastName = (student && student.lastName) || null;
     this.age = (student && student.age) || null;
     this.gender = (student && student.gender) || "Madame";
-    this.cours = this.initCourses((student && student.cours) || COURSES);
+    this.cours = this.initCourses((student && student.cours) || []);
     this.selectedDays = this.initSelectedDays(
       (student && student.selectedDays) || DAYS
     );

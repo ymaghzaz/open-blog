@@ -10,11 +10,13 @@ import { Student } from "../models/student.model";
 @Injectable()
 export class RegisterServiceService {
   private itemsCollection: AngularFirestoreCollection<any>;
+  private studentsCollection: AngularFirestoreCollection<any>;
   constructor(
     private ngFirestore: AngularFirestore,
     public manageAuth: ManageAuthService
   ) {
     this.itemsCollection = ngFirestore.collection<any>("users");
+    this.studentsCollection = ngFirestore.collection<any>("students");
   }
 
   signIn(user: userRegisterInfos) {
@@ -46,6 +48,7 @@ export class RegisterServiceService {
       console.log(" update ,", student.age, student.id);
       if (student && student.id) {
         db.doc(student.id).update({ ...student });
+        this.studentsCollection.doc(student.id).update({ ...student });
       } else {
         const studentID =
           user.userID.toString() +
@@ -57,6 +60,7 @@ export class RegisterServiceService {
           Date.now().toString();
         student.id = (student && student.id) || studentID;
         db.doc(student.id).set({ ...student });
+        this.studentsCollection.doc(student.id).set({ ...student });
       }
     });
   }
